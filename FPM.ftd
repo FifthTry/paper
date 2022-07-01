@@ -9,3 +9,14 @@ zip: github.com/fifthtry/paper/archive/refs/heads/main.zip
 
 
 -- fpm.auto-import: ds
+-- fpm.auto-import: fifthtry.github.io/paper/FPM/config
+
+-- fpm.sitemap:
+
+# Home: /index.html
+
+# With-toc: /ds-sample/
+- Sample Toc Item: /ds-sample/
+/- Howto: /-/fifthtry.github.io/resume/how-to/
+  name: onepage
+# Full Page: /full-page/
