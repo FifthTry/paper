@@ -1,2 +1,2 @@
-# fpm-template
-FPM Blank Package Template Repo
+# Paper Resume Theme
+FTD resume theme by FifthTry - inspired by jsonresume.org based on fifthtry.github.io/resume/
