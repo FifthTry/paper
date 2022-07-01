@@ -1,6 +1,5 @@
 -- import: fpm
 -- import: fifthtry.github.io/onepage/assets
--- import: ds
 -- import: fifthtry.github.io/resume/sample as s
 -- import: fifthtry.github.io/resume as res
 
@@ -33,53 +32,66 @@ weight: 700
 
 
 
+-- ds.page:
 
-
--- my-resume:
-data: $s.john-doe
-
-
-
+--- show-resume:
+resume: $s.john-doe
 
 
 
 
 
-
--- ftd.column my-resume:
-align: center
+-- ftd.column full-page:
+res.resume resume:
+width: fill
 background-color: $fpm.color.main.background.base
+
+--- show-resume:
+resume: $resume
+
+
+
+
+
+
+
+
+
+
+-- ftd.column show-resume:
+align: center
+background-color: $fpm.color.main.background.step-1
 padding-top: $fpm.space.space-7
 padding-bottom: $fpm.space.space-9
 width: fill
 max-width if not $is-mobile: 1200
 margin-top: $fpm.space.space-4
 margin-bottom: $fpm.space.space-4
-res.resume data: 
+res.resume resume: 
 
---- profile-card-data:
-candidate-name: $data.basic.name
-candidate-label: $data.basic.label
-candidate-email-address: $data.basic.email
-candidate-phone: $data.basic.phone
-candidate-address: $data.location.address
-candidate-address-postalCode: $data.location.postalCode
-candidate-address-city: $data.location.city
-candidate-address-region: $data.location.region
-candidate-address-countryCode: $data.location.countryCode
+--- profile-card-resume:
+candidate-name: $resume.basic.name
+candidate-label: $resume.basic.label
+candidate-email-address: $resume.basic.email
+candidate-phone: $resume.basic.phone
+candidate-address: $resume.location.address
+candidate-address-postalCode: $resume.location.postalCode
+candidate-address-city: $resume.location.city
+candidate-address-region: $resume.location.region
+candidate-address-countryCode: $resume.location.countryCode
 
---- career-objective-data:
-candidate-profile-summary:  $data.basic.summary
+--- career-objective-resume:
+candidate-profile-summary:  $resume.basic.summary
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.work is not empty
+if: $resume.work is not empty
 
 --- head: WORK
 
---- work-card-data:
+--- work-card-resume:
 name: $obj.name
 position: $obj.position
 location: $obj.location
@@ -88,17 +100,17 @@ startDate: $obj.startDate
 endDate: $obj.endDate
 summary: $obj.summary
 highlights: $obj.highlights
-$loop$: $data.work as $obj
+$loop$: $resume.work as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.education is not empty
+if: $resume.education is not empty
 
 --- head: EDUCATION
 
---- education-card-data:
+--- education-card-resume:
 institution: $obj.institution
 url: $obj.url
 courses: $obj.courses
@@ -107,30 +119,30 @@ studyType: $obj.studyType
 startDate: $obj.startDate
 endDate: $obj.endDate
 score: $obj.score
-$loop$: $data.education as $obj
+$loop$: $resume.education as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.skill is not empty
+if: $resume.skill is not empty
 
 ---  head: SKILLS:
 
---- skill-card-data:
+--- skill-card-resume:
 name: $obj.name
 keyword: $obj.keywords
-$loop$: $data.skill as $obj
+$loop$: $resume.skill as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.project is not empty
+if: $resume.project is not empty
 
 --- head: Project
 
---- project-card-data:
+--- project-card-resume:
 name: $obj.name
 url: $obj.url
 description: $obj.description
@@ -141,33 +153,33 @@ role: $obj.role
 keyword: $obj.keyword
 entity: $obj.entity
 type: $obj.type
-$loop$: $data.project as $obj
+$loop$: $resume.project as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.award is not empty
+if: $resume.award is not empty
 
 
 --- head: Awards
 
---- acheivement-card-data:
+--- acheivement-card-resume:
 title: $obj.title
 date: $obj.date
 awarder:  $obj.awarder
 summary: $obj.summary
-$loop$: $data.award as $obj
+$loop$: $resume.award as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.volunteer is not empty
+if: $resume.volunteer is not empty
 
 --- head: Volunteer
 
---- volunteer-card-data:
+--- volunteer-card-resume:
 organization: $obj.organization
 position: $obj.position
 url: $obj.url
@@ -175,44 +187,44 @@ startDate: $obj.startDate
 endDate: $obj.endDate
 highlights: $obj.highlights
 summary: $obj.summary
-$loop$: $data.volunteer as $obj
+$loop$: $resume.volunteer as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.publication is not empty
+if: $resume.publication is not empty
 
 --- head: Publications
 
---- publication-card-data:
+--- publication-card-resume:
 name: $obj.name
 publisher: $obj.publisher
 releaseDate: $obj.releaseDate
 url: $obj.url
 summary: $obj.summary
-$loop$: $data.publication as $obj
+$loop$: $resume.publication as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.certificate is not empty
+if: $resume.certificate is not empty
 
 --- head:  Certificates
 
---- certificate-card-data:
+--- certificate-card-resume:
 name: $obj.name
 issuer: $obj.issuer
 date: $obj.date
 url: $obj.url
-$loop$: $data.certificate as $obj
+$loop$: $resume.certificate as $obj
 
 --- container: ftd.main
 
 --- ftd.column:
 width: fill
-if: $data.reference is not empty
+if: $resume.reference is not empty
 
 --- head:  Refrences
 
@@ -223,14 +235,14 @@ company: $obj.company
 email: $obj.email-id
 phone-no: $obj.phone-no
 reference: $obj.reference
-$loop$: $data.reference as $obj
+$loop$: $resume.reference as $obj
 
 
 
 
 
 
--- ftd.row profile-card-data:
+-- ftd.row profile-card-resume:
 optional string candidate-name: 
 optional string candidate-label: 
 optional string candidate-email-address: 
@@ -389,7 +401,7 @@ optional string candidate-address-countryCode:
 optional caption candidate-address: 
 optional string candidate-address-postalCode:  
 spacing: 8
-padding-left: $fpm.space.space-6
+/padding-left: $fpm.space.space-4
 
 
 --- ftd.text: 
@@ -404,9 +416,8 @@ color: $fpm.color.main.text
 
 --- ftd.column:
 spacing: 12
+id: switch-container
 
---- ftd.row:
-id: address-container
 
 --- ftd.text: $candidate-address
 if: $candidate-address is not null
@@ -414,7 +425,7 @@ padding-left: $fpm.space.space-2
 color: $fpm.color.main.text
 role: $fpm.type.label-small
 
---- container: address-container
+--- container: switch-container
 
 --- ftd.text: $candidate-address-city
 if: $candidate-address-city is not null
@@ -422,7 +433,7 @@ padding-left: $fpm.space.space-2
 color: $fpm.color.main.text
 role: $fpm.type.label-small
 
---- container: address-container
+--- container: switch-container
 
 --- ftd.text: $candidate-address-region
 if: $candidate-address-region is not null
@@ -430,7 +441,11 @@ padding-left: $fpm.space.space-2
 color: $fpm.color.main.text
 role: $fpm.type.label-small
 
---- container: address-container
+--- container: switch-container
+
+
+--- ftd.row:
+id: address-container
 
 --- ftd.text: $candidate-address-countryCode
 if: $candidate-address-countryCode is not null
@@ -459,7 +474,7 @@ role: $fpm.type.label-small
 
 
 
--- ftd.column career-objective-data:
+-- ftd.column career-objective-resume:
 string career-objective-head: CAREER OBJECTIVE
 optional body candidate-profile-summary: 
 width: fill
@@ -512,7 +527,7 @@ margin-bottom: $fpm.space.space-7
 
 
 
--- ftd.row work-card-data:
+-- ftd.row work-card-resume:
 optional caption name:
 optional string position:
 optional string url:
@@ -731,7 +746,7 @@ margin-bottom: $fpm.space.space-7
 
 
 
--- ftd.row education-card-data:
+-- ftd.row education-card-resume:
 optional caption institution:
 optional string url:
 optional string area:
@@ -986,7 +1001,7 @@ color: $fpm.color.main.text
 
 
 
--- ftd.row skill-card-data:
+-- ftd.row skill-card-resume:
 optional caption name:
 res.keyword list keyword:
 width: fill
@@ -1041,13 +1056,13 @@ role: $fpm.type.fine-print
 optional caption name:
 res.keyword list keyword:
 spacing: 12
-margin-bottom: $fpm.space.space-2
+margin-bottom: $fpm.space.space-6
 padding-left: $fpm.space.space-6
 width: fill
 
 --- ftd.text: $name
 color: $fpm.color.main.text
-role: $fpm.type.copy-tight
+role: $copy-tight-bold
 width: fill
 
 --- container: ftd.main
@@ -1091,7 +1106,7 @@ margin-top if not  $is-mobile: $fpm.space.space-9
 
 
 
--- ftd.row project-card-data:
+-- ftd.row project-card-resume:
 optional caption name:
 optional string description:
 optional string highlights:
@@ -1489,7 +1504,7 @@ color: $fpm.color.main.text
 
 
 
--- ftd.row certificate-card-data:
+-- ftd.row certificate-card-resume:
 optional caption name:
 optional string issuer:
 optional string url:
@@ -1575,10 +1590,6 @@ width: fill
 spacing: 8
 padding-left: $fpm.space.space-6
 margin-bottom: $fpm.space.space-6
---- ftd.column:
-width: fill
-id: left-side
-spacing: 16
 
 --- ftd.row:
 if: $name is not null
@@ -1599,7 +1610,7 @@ role: $copy-tight-bold
 color: $fpm.color.main.text
 width: fill
 
---- container: left-side
+--- container: ftd.main
 
 --- ftd.text: $date
 if: $date is not null
@@ -1632,7 +1643,7 @@ color: $fpm.color.main.text
 
 
 
--- ftd.row publication-card-data:
+-- ftd.row publication-card-resume:
 optional caption name:
 optional string publisher:
 optional string releaseDate:
@@ -1724,14 +1735,14 @@ width: fill
 spacing: 8
 margin-bottom: $fpm.space.space-6
 padding-left: $fpm.space.space-6
---- ftd.column:
-spacing: 16
-width: fill
+
 --- ftd.text: $name
 if: $name is not null
 role: $copy-tight-bold
 color: $fpm.color.main.text
 width: fill
+
+--- container: ftd.main
 
 --- ftd.text: $releaseDate
 if: $releaseDate is not null
@@ -1740,11 +1751,6 @@ color: $fpm.color.main.text
 width: fill
 
 --- container: ftd.main
-
---- ftd.column:
-width: fill
-id: right-side
-spacing: 16
 
 --- ftd.row:
 if: $publisher is not null
@@ -1765,7 +1771,8 @@ role: $fpm.type.fine-print
 color: $fpm.color.main.text
 width: fill
 
---- container: right-side
+--- container: ftd.main
+
 --- ftd.text: $summary
 if: $summary is not null
 role: $fpm.type.fine-print
@@ -1774,7 +1781,7 @@ color: $fpm.color.main.text
 
 
 
--- ftd.row acheivement-card-data:
+-- ftd.row acheivement-card-resume:
 optional caption title:
 optional string date:
 optional string awarder:
@@ -1802,6 +1809,7 @@ spacing: 16
 width: fill
 padding-left: $fpm.space.space-9
 margin-bottom: $fpm.space.space-6
+
 --- ftd.column:
 width: percent 40
 spacing: 24
@@ -1821,12 +1829,19 @@ role: $fpm.type.fine-print
 
 --- container: ftd.main
 
+
+--- ftd.column:
+width: fill
+spacing: 16
+id: switch-container
+
+
 --- ftd.text: $awarder
 if: $awarder is not null
 color: $fpm.color.main.text
 role: $fpm.type.fine-print
 
---- container: ftd.main
+--- container: switch-container
 
 --- ftd.text: $summary
 if: $summary is not null
@@ -1839,21 +1854,17 @@ optional caption title:
 optional string date:
 optional string awarder:
 optional string summary:
-spacing: 16
+spacing: 8
 width: fill
 padding-left: $fpm.space.space-6
 margin-bottom: $fpm.space.space-6
---- ftd.column:
-width: fill
-spacing: 24
-id: show-container
 
 --- ftd.text: $title
 if: $title is not null
 color: $fpm.color.main.text
 role: $fpm.type.fine-print
 
---- container: show-container
+--- container: ftd.main
 
 --- ftd.text: $date
 if: $date is not null
@@ -1885,7 +1896,7 @@ role: $fpm.type.fine-print
 
 
 
--- ftd.row volunteer-card-data:
+-- ftd.row volunteer-card-resume:
 optional caption organization:
 optional string position:
 optional string url:
@@ -1999,10 +2010,7 @@ color: $fpm.color.main.text
 spacing: 8
 padding-left: $fpm.space.space-6
 margin-bottom: $fpm.space.space-6
---- ftd.column:
-width: fill
-id: show-container
-spacing: 16
+
 
 --- ftd.text: $organization
 if: $url is not null
@@ -2010,7 +2018,7 @@ link: $url
 role: $fpm.type.copy-tight
 color: $fpm.color.main.text
 
---- container: show-container
+--- container: ftd.main
 
 --- ftd.text: $organization
 if: $url is null
@@ -2035,21 +2043,19 @@ role: $fpm.type.fine-print
 
 --- container: ftd.main
 
---- ftd.column:
-width: fill
-spacing: 16
-
 --- ftd.text: $position
 if: $position is not null
 role: $fpm.type.fine-print
 color: $fpm.color.main.text
 
-
+--- container: ftd.main
 
 --- ftd.text: $highlights
 if: $highlights is not null
 width:fill
 role: $fpm.type.fine-print
+
+--- container: ftd.main
 
 --- ftd.text: $summary
 if: $summary is not null
