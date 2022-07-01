@@ -3,6 +3,9 @@
 -- fpm.package: fifthtry.github.io/paper
 zip: github.com/fifthtry/paper/archive/refs/heads/main.zip
 
+
 -- fpm.dependency: fifthtry.github.io/doc-site as ds
+-- fpm.dependency: fifthtry.github.io/resume
+
 
 -- fpm.auto-import: ds
