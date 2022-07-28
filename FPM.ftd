@@ -6,6 +6,9 @@ zip: github.com/fifthtry/paper/archive/refs/heads/main.zip
 
 -- fpm.dependency: fifthtry.github.io/doc-site as ds
 -- fpm.dependency: fifthtry.github.io/resume
+-- fpm.dependency: fifthtry.github.io/roboto
+-- fpm.dependency: fifthtry.github.io/forest-cs as forest-cs
+
 
 
 -- fpm.auto-import: ds
