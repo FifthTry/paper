@@ -12,7 +12,7 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/paper-resume/main
 
 
 -- fpm.auto-import: ds
--- fpm.auto-import: fifthtry.github.io/paper/FPM/config
+-- fpm.auto-import: fifthtry.github.io/paper-resume/FPM/config
 
 -- fpm.sitemap:
 
