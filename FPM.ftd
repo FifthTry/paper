@@ -1,6 +1,6 @@
 -- import: fpm
 
--- fpm.package: fifthtry.github.io/paper
+-- fpm.package: fifthtry.github.io/paper-resume
 zip: github.com/fifthtry/paper/archive/refs/heads/main.zip
 
 
