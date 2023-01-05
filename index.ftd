@@ -520,7 +520,6 @@ text: $work-heading
 role: $fpm.type.copy-large
 color: $fpm.color.main.text-strong
 background-color: $fpm.color.main.background.step-2
-width: fill
 padding-left: $fpm.space.space-9
 padding-vertical: $fpm.space.space-2
 margin-top: $fpm.space.space-9
@@ -559,7 +558,7 @@ highlights: $highlights
 endDate: $endDate
 summary: $summary
 
---- work-card-data-mobile: $name
+--- work-card-data-mobile: 
 if: $is-mobile
 position: $position
 location: $location
